@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Nav toggle={navtoggle} />
 
-        <div className="max-w-screen-2xl w-full m-auto shadow-xl px-6">
+        <div className="lg:max-w-screen-2xl lg:w-full lg:m-auto lg:shadow-xl lg:px-6 lg:min-h-screen">
           <Dropdown toggle={navtoggle} isOpen={isOpen} />
 
           <Switch>

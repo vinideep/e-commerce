@@ -1,29 +1,35 @@
 import { ShopContext } from "../context/shopContext";
 import React, { useContext } from "react";
-import Banner from "../compenents/svg/5087095.jpg";
+import Banner from "../compenents/svg/1021.jpg";
 const Products = () => {
   const contextData = useContext(ShopContext);
 
   return (
-    <div className="w-full lg:flex lg:flex-wrap lg:justify-around block">
+    <>
+    <div className="w-full lg:flex lg:flex-wrap lg:justify-around ">
       <div className="mt-24 mb-8 w-full">
-        <img className="w-full max-w-screen-2xl" src={Banner} alt="banner" />
+        <img className="w-full max-w-screen-2xl " src={Banner} alt="banner" />
         <h1 className="text-center text-4xl text-gray-600 p-2 border-2 mt-20 uppercase">
           Products
         </h1>
       </div>
+    </div>
+
+
+    <div className="w-full lg:flex lg:flex-wrap lg:justify-center md:justify-center md:flex md:flex-wrap md:p-2 "> 
       {contextData ? (
         contextData.products.map((product, index) => (
+         
           <div
             key={index}
-            className="lg:w-96 w-3/4 m-auto mb-6 border-2 lg:m-4  text-center  transition border-gray-100 overflow-hidden shadow-2xl hover:shadow-lg"
-          >
+            className="lg:w-1/4 lg:h-1/4 m-auto mb-6 border-2 lg:m-4 md:w-1/2 md:mx-2 sm:w-full w-full text-center border-gray-100 overflow-hidden shadow-xl hover:shadow-md"
+           >
             <img
-              className="block object-cover max-w-full"
-              src={product.image.sourceUrl}
-              alt="Product"
+              className="block bg-cover bg-center object-cover w-full border-b-2"
+              src={product.image.sourceUrl} 
+              alt="Product" 
             />
-            <h1 className="uppercase text-xl cursor-pointer p-2 hover:text-red-500">
+            <h1 className="uppercase font-semibold text-xl cursor-pointer p-2 hover:text-red-500">
               {product.name}
             </h1>
             <p className="text-red-500 p-2">
@@ -72,6 +78,7 @@ const Products = () => {
         <p>Loading...</p>
       )}
     </div>
+    </>
   );
 };
 
