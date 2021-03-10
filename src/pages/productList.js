@@ -22,7 +22,7 @@ const Products = () => {
          
           <div
             key={index}
-            className="lg:w-1/4 lg:h-1/4 m-auto mb-6 border-2 lg:m-4 md:w-1/2 md:mx-2 sm:w-full w-full text-center border-gray-100 overflow-hidden shadow-xl hover:shadow-md"
+            className="lg:w-1/4 md:w-1/2 w-5/6  lg:h-1/4  m-auto mb-6 border-2 lg:m-10 sm:w-3/4 text-center border-gray-100 overflow-hidden shadow-xl hover:shadow-md"
            >
             <img
               className="block bg-cover bg-center object-cover w-full border-b-2"
@@ -50,7 +50,7 @@ const Products = () => {
             ) : (
               <div className="flex justify-between pb-4">
                 <button
-                  className="bg-gray-800 text-white text-2xl md:py-4 md:px-6 lg:px-5 lg:py-2 m-auto rounded-lg"
+                  className="bg-gray-800 px-3 text-center text-white text-2xl md:py-4 md:px-6 lg:px-5 lg:py-2 m-auto rounded-lg"
                   onClick={() => {
                     contextData.Decrement(product);
                   }}
@@ -63,7 +63,7 @@ const Products = () => {
                   )}
                 </span>
                 <button
-                  className="bg-gray-800 text-white text-2xl md:py-4 md:px-6 lg:px-4 lg:py-2 m-auto rounded-lg"
+                  className="bg-gray-800 px-2 text-center text-white text-2xl md:py-4 md:px-6 lg:px-4 lg:py-2 m-auto rounded-lg"
                   onClick={() => {
                     contextData.addProductToCart(product);
                   }}

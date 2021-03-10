@@ -41,10 +41,10 @@ const CartData = () => {
   );
   return (
     <div className="w-full lg:w-2/3 md:w-full m-auto lg:p-4 ">
-      <h1 className="text-4xl text-center font-bold mt-20 text-gray-500">
+      <h1 className="text-4xl text-center font-bold mt-20 pb-6 text-gray-500">
         CART
       </h1>
-      <hr className="border-2" />
+      <hr className="border-2 mb-4" />
       {contextData.store.length > 0 ? (
         contextData.store.map((name, index) =>
           name ? cartList(name, index) : null
@@ -56,12 +56,12 @@ const CartData = () => {
       )}
       {total > 1 ? (
         <>
-          <div className="flex w-1/4 ml-auto border-2 p-4 border-indigo-300 text-xl">
+          <div className="flex lg:w-1/4 w-1/2 ml-auto border-2 p-2 lg:p-4 border-indigo-300 text-xl">
             <p>Cart Total - </p>
             <span className="ml-auto">{total.toFixed(2)}</span>
           </div>
           <div className="flex m-5">
-            <button className="border-2 font-bold ml-auto text-gray-700 p-2 bg-gradient-to-tr hover:from-green-700 from-yellow-500">Proceed to Checkout</button>
+            <button className="border-2 font-bold ml-auto text-gray-700 p-2 bg-gradient-to-tr hover:from-green-700 from-yellow-500 to-pink-400">Proceed to Checkout</button>
           </div>
         </>
       ) : null}
