@@ -5,94 +5,112 @@ import Menu from "./svg/bars-solid.svg";
 import CartIcon from "./svg/shopping-cart-solid.svg";
 import Logo from "./svg/pagelines-brands.svg";
 import "../styles/header.css";
-const Nav = ({ toggle }) => {
+const Nav = ({ toggle, isOpen }) => {
   const contextData = useContext(ShopContext);
   return (
-    <nav className="w-full flex justify-around top-0 md:mb-20 border-b-2 items-center fixed flex-wrap bg-white text-gray-800">
-      <Link to="/" className=" m-4 mr-auto inline-flex items-center">
-        <img className="lg:w-10 lg:pl-4 w-4 mx-2" src={Logo} alt="style" />
-        <h1 className="lg:font-extrabold md:font-extrabold font-extrabold text-gray-600 lg:text-3xl md:text-2xl lg:tracking-wide md:tracking-wide">
-          TEXSOUL FASHIONS
-        </h1>
-        <img className="lg:w-10 lg:pl-4 w-4 mx-2" src={Logo} alt="style" />
-      </Link>
-      {
-        <Link
-          className="lg:hidden md:inline-flex  ml-auto text-gray-700 items-center"
-          to="/cart"
-        >
-          <p className=" inline-flex ">
+    <header>
+      <nav className="flex items-center flex-wrap p-2 z-10 bg-white fixed top-0 w-full">
+        {/* logo */}
+        <Link to="/" className="inline-flex p-2 m- transition-all">
+          <img className="lg:w-10 lg:px-2 md:w-5 md:mx-2 w-3" src={Logo} alt="style" />
+          <h1 className="lg:text-3xl text-lg font-extrabold text-gray-700 tracking-wider uppercase">
+            TEXSOUL FASHIONS
+          </h1>
+          <img className="lg:w-10 lg:px-2 md:w-5 md:mx-2 w-3" src={Logo} alt="style" />
+        </Link>
+        {/* logo ends */}
+        {/* cart Icon */}
+        <div className="flex ml-auto">
+          <Link
+            className="inline-flex p-2 ml-auto lg:hidden"
+            to="/cart"
+            onClick={() => (isOpen ? toggle() : null)}
+          >
             <img
-              className="lg:w-7 lg:z-10 w-5 text-center animate-pulse"
+              className="lg:w-7 lg:z-10 md:w-7 w-5 mx-2 animate-pulse"
               src={CartIcon}
               alt="style"
             />
-            <sub className=" rounded-full text-gray-800 pl-2 lg:-mt-2 ">
-              {contextData.value}
-            </sub>
-          </p>
-        </Link>
-      }
-      <Link
-        to="/"
-        className="text-white inline-flex items-center p-3 hover:bg-gray-200 rounded-lg lg:hidden"
-        onClick={() => {
-          toggle();
-        }}
-      >
-        <img className="lg:w-6 w-4" src={Menu} alt="style" />
-      </Link>
-      <div
-        className="w-full float-left mr-3 lg:inline-flex lg:flex-grow lg:w-auto hidden"
-        id="navtoggler"
-      >
-        <div className="flex flex-col lg:inline-flex lg:flex-row ml-auto">
+            <sub className="  ">{contextData.value}</sub>
+          </Link>
+          {/* cart Icon ends */}
+          {/* hamburger menu bar */}
           <Link
-            className="lg:inline-flex lg:w-auto font-semibold text-lg  text-gray-700 px-6 hover:text-green-600 p-2 hover:opacity-80 hover:shadow-xl hover:bg-white"
             to="/"
+            className="inline-flex p-3 hover:bg-gray-400 rounded-lg lg:hidden ml-auto"
+            onClick={() => {
+              toggle();
+            }}
           >
-            HOME
+            <img className="md:w-6 w-5" src={Menu} alt="style" />
           </Link>
-
-          <Link
-            className="lg:inline-flex lg:w-auto font-semibold text-lg  text-gray-700 px-6 hover:text-green-600 p-2 hover:opacity-80 hover:shadow-xl hover:bg-white"
-            to="/products"
-          >
-            PRODUCTS
-          </Link>
-
-          <Link
-            className="lg:inline-flex lg:w-auto font-semibold text-lg  text-gray-700 px-6 hover:text-green-600 p-2 hover:opacity-80 hover:shadow-xl hover:bg-white"
-            to="/about"
-          >
-            ABOUT
-          </Link>
-
-          <Link
-            className="lg:inline-flex lg:w-auto font-semibold text-lg  text-gray-700 px-6 hover:text-green-600 p-2 hover:opacity-80 hover:shadow-xl hover:bg-white"
-            to="/login"
-          >
-            LOGIN
-          </Link>
-
-          <Link
-            className="lg:inline-flex lg:w-auto font-semibold  text-gray-700 px-10 hover:opacity-80"
-            to="/cart"
-          >
-            <span className=" inline-flex ">
+        </div>
+        {/* hamburger menu bar ends */}
+        {/* list of menu starts */}
+        <div
+          className={
+            isOpen
+              ? "w-full lg:inline-flex lg:flex-grow lg:w-auto"
+              : "w-full lg:inline-flex lg:flex-grow lg:w-auto hidden"
+          }
+        >
+          <div className="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col ">
+            <Link
+              className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:shadow-xl hidden  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+              to="/cart"
+            >
               <img
-                className="w-7 z-10 animate-pulse"
+                className="lg:w-7 lg:z-10 w-7 mx-2 animate-pulse"
                 src={CartIcon}
                 alt="style"
               />
-              <sub className=" rounded-full text-gray-800 ">
-                {contextData.value}
-              </sub>
-            </span>
-          </Link>
+              <sub className="  ">{contextData.value}</sub>
+            </Link>
+            <Link
+              className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl
+              transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+              to="/"
+              onClick={() => {
+                toggle();
+              }}
+            >
+              HOME
+            </Link>
+
+            <Link
+              className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:rotate-3 hover:-translate-y-1 hover:scale-110"
+              to="/products"
+              onClick={() => {
+                toggle();
+              }}
+            >
+              PRODUCTS
+            </Link>
+
+            <Link
+              className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:-rotate-3 hover:-translate-y-1 hover:scale-110"
+              to="/about"
+              onClick={() => {
+                toggle();
+              }}
+            >
+              ABOUT
+            </Link>
+
+            <Link
+              className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+              to="/login"
+              onClick={() => {
+                toggle();
+              }}
+            >
+              LOGIN
+            </Link>
+          </div>
         </div>
-      </div>
-    </nav>
+        {/* list of menu ends */}
+      </nav>
+    </header>
   );
 };
 export default Nav;
