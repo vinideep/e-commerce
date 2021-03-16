@@ -18,7 +18,7 @@ const Description = ({ match }) => {
             className="lg:my-6 lg:mt-12 border-2 lg:flex md:block lg:border- py-10 m-auto"
             key={index}
           >
-            <div className=" m-auto z-0 lg:shadow-2xl hover:shadow-xl rounded-md p-2 md:w-8/12 lg:w-3/12">
+            <div className=" m-auto z-10 lg:shadow-2xl hover:shadow-xl rounded-md p-2 md:w-8/12 lg:w-3/12 ">
               <ReactImageMagnify
                 {...{
                   smallImage: {
